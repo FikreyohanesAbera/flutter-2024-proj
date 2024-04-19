@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../others/bookingDetail.dart';
+import '../others/bookingsClass.dart';
+import '../widgets/My_bookingsState.dart';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,6 +17,10 @@ class ExpandedBooking extends StatefulWidget {
 
 class _ExpandedBookingState extends State<ExpandedBooking> {
   late DateTime _RemainingTime = DateTime.now();
+  int numOfPeople = 0;
+  String type = '';
+  String branch = '';
+  String food = '';
 
   @override
   late Timer _timer;
@@ -41,6 +47,26 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
 
   @override
   Widget build(BuildContext context) {
+    final dynamic arguments = ModalRoute.of(context)?.settings.arguments;
+
+    ReservedTable? yourData;
+
+    // Check if arguments is not null and is of type ReservedTable
+    if (arguments != null && arguments is ReservedTable) {
+      yourData = arguments;
+      yourData.guests;
+      yourData.date;
+      yourData.time;
+      yourData.type;
+      yourData.food;
+      yourData.date;
+    } else {
+      throw ErrorSummary("message");
+      // Handle the case where arguments is null or not of type ReservedTable
+    }
+
+    // Use yourData if it's not null
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Booking Details"),
@@ -110,7 +136,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     Text(
-                                      "Pasta",
+                                      yourData.food!,
                                       style: GoogleFonts.amita(
                                           fontSize: 45,
                                           fontWeight: FontWeight.w600,
@@ -118,7 +144,8 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                     ),
                                     Container(
                                       width: 140,
-                                      child: Image.asset('assets/tibs.png'),
+                                      child:
+                                          Image.asset('${yourData.imageUrl}'),
                                     ),
                                   ],
                                 ),
@@ -135,7 +162,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                       const EdgeInsets.fromLTRB(20, 0, 20, 0),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: Color(0xFF028C6A),
+                                      color: const Color(0xFF028C6A),
                                       borderRadius: BorderRadius.circular(6),
                                       boxShadow: const [
                                         BoxShadow(
@@ -158,8 +185,8 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                             child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
-                                                children: const [
-                                                  Text(
+                                                children: [
+                                                  const Text(
                                                     "Type",
                                                     style: TextStyle(
                                                         color: Color.fromARGB(
@@ -168,12 +195,12 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                                             211,
                                                             182)),
                                                   ),
-                                                  SizedBox(
+                                                  const SizedBox(
                                                     height: 3,
                                                   ),
                                                   Text(
-                                                    "Business",
-                                                    style: TextStyle(
+                                                    '${yourData.type}',
+                                                    style: const TextStyle(
                                                         color: Color.fromARGB(
                                                             255, 32, 39, 37),
                                                         fontWeight:
@@ -187,18 +214,19 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
-                                          children: const [
-                                            Icon(
+                                          children: [
+                                            const Icon(
                                               Icons.people,
                                               size: 35,
                                               color: Color(0xff003e19),
                                             ),
-                                            SizedBox(width: 7),
+                                            const SizedBox(width: 7),
                                             Text(
-                                              "3",
-                                              style: TextStyle(
+                                              '${yourData.guests}',
+                                              style: const TextStyle(
                                                   fontSize: 30,
-                                                  color: Color(0xffd1ede1)),
+                                                  color:
+                                                      const Color(0xffd1ede1)),
                                             )
                                           ],
                                         ),
@@ -208,21 +236,22 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                           child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                              children: const [
-                                                Text(
+                                              children: [
+                                                const Text(
                                                   "Branch",
                                                   style: TextStyle(
                                                       color: Color.fromARGB(
                                                           255, 140, 211, 182)),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   height: 3,
                                                 ),
                                                 Text(
-                                                  "Arat kilo",
-                                                  style: TextStyle(
-                                                      color: Color.fromARGB(
-                                                          255, 32, 39, 37),
+                                                  '${yourData.branch}',
+                                                  style: const TextStyle(
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255, 32, 39, 37),
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 18),
@@ -233,19 +262,19 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 15),
+                                const SizedBox(height: 15),
 
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.timelapse_outlined,
                                       color: Color.fromARGB(255, 243, 255, 82),
                                       size: 24,
                                     ),
                                     Container(
                                       decoration: BoxDecoration(
-                                          color: Color.fromARGB(
+                                          color: const Color.fromARGB(
                                               255, 134, 180, 163),
                                           borderRadius:
                                               BorderRadius.circular(5)),
@@ -262,7 +291,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 55),
+                                const SizedBox(height: 55),
 
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
