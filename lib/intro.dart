@@ -83,4 +83,20 @@ class Intro extends StatelessWidget {
                         vertical: 15,
                       ),
                     ),
-
+                    child: const Text(
+                      "Let's Start",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
