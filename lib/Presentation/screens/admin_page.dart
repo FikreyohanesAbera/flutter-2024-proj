@@ -6,7 +6,7 @@ class AdminPage extends StatelessWidget {
   final bool isDarkMode;
   final VoidCallback toggleTheme;
 
-  AdminPage({required this.isDarkMode, required this.toggleTheme});
+  const AdminPage({super.key, required this.isDarkMode, required this.toggleTheme});
 
   @override
   Widget build(BuildContext context) {
