@@ -57,11 +57,11 @@ class DateField extends StatelessWidget {
       lastDate: DateTime(DateTime.now().year + 1),
     );
     if (picked != null) {
-      // Format the selected date without time
+     
       final formattedDate =
           '${picked.year}-${_twoDigits(picked.month)}-${_twoDigits(picked.day)}';
       dateController.text =
-          formattedDate; // Update the text field with the formatted date
+          formattedDate;
     }
   }
 
