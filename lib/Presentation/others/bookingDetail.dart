@@ -7,8 +7,6 @@ class BookingDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Hello from MyWidget!'),
-    );
+    return const Text('Hello from MyWidget!');
   }
 }
