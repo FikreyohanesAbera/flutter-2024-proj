@@ -21,14 +21,14 @@ class DateField extends StatelessWidget {
       controller: dateController,
       readOnly: true,
       style: TextStyle(
-        color: isDateFocused ? Colors.white : Color.fromRGBO(159, 188, 204, 1),
+        color: isDateFocused ? Colors.white :const Color.fromRGBO(159, 188, 204, 1),
         fontSize: isDateFocused ? 20 : 20,
       ),
       decoration: InputDecoration(
         labelText: 'Date',
         labelStyle: TextStyle(
           color:
-              isDateFocused ? Colors.white : Color.fromRGBO(159, 188, 204, 1),
+              isDateFocused ? Colors.white :const Color.fromRGBO(159, 188, 204, 1),
           fontSize: isDateFocused ? 24 : 23,
         ),
         prefixIcon: const Icon(
