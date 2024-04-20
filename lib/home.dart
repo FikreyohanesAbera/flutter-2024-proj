@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/widgets.dart';
-import 'package:practice/about.dart';
+import './Presentation/screens/about.dart';
 
 void main() {
   runApp(const MyApp());
@@ -111,17 +110,15 @@ class HomePage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          child: Text(
-                            "Discover Our Reservation",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 221, 77, 89),
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        Text(
+                          "Discover Our Reservation",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 221, 77, 89),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
+                        const Text(
                           "Types",
                           style: TextStyle(
                             color: Color.fromARGB(255, 221, 77, 89),
@@ -129,9 +126,9 @@ class HomePage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Container(
-                          color: Color.fromARGB(255, 202, 193, 193),
+                          color:const Color.fromARGB(255, 202, 193, 193),
                           child: SizedBox(
                             height: 450,
                             child: ListView(
@@ -194,16 +191,16 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.star,
                       color: Color.fromARGB(255, 221, 183, 77),
                       size: 30,
                     ),
-                    const SizedBox(width: 10),
-                    const Text(
+                    SizedBox(width: 10),
+                    Text(
                       "Popular foods on tables",
                       style: TextStyle(
                         color: Color.fromARGB(255, 221, 77, 89),
@@ -251,9 +248,9 @@ Widget _buildCard(String title, String description, String imagePath) {
   return SizedBox(
     width: 300,
     child: Card(
-      color: Color.fromARGB(255, 100, 99, 95),
+      color:const Color.fromARGB(255, 100, 99, 95),
       elevation: 1,
-      margin: EdgeInsets.all(11),
+      margin:const EdgeInsets.all(11),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -266,33 +263,33 @@ Widget _buildCard(String title, String description, String imagePath) {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(11),
+            padding:const EdgeInsets.all(11),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: TextStyle(
+                  style:const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontFamily: "A",
                       fontSize: 20),
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Text(
                   description,
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      icon: Icon(Icons.share),
+                      icon:const Icon(Icons.share),
                       onPressed: () {},
                     ),
                     IconButton(
-                      icon: Icon(Icons.favorite),
+                      icon:const Icon(Icons.favorite),
                       onPressed: () {},
                     ),
                   ],

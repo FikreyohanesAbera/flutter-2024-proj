@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:user_profile/lib/pages/profie_page.dart';
+import './Presentation/screens/profie_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData.dark(),
-      home: ProfilePage(),
+      home:const ProfilePage(),
     );
   }
 }
