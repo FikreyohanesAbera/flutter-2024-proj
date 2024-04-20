@@ -110,7 +110,7 @@ class HomePage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "Discover Our Reservation",
                           style: TextStyle(
                             color: Color.fromARGB(255, 221, 77, 89),
