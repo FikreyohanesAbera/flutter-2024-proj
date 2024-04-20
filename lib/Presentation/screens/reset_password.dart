@@ -58,7 +58,7 @@ class ResetPasswordPage extends StatelessWidget {
                 TextField(
                   style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
-                    hintText: 'confirm Password',
+                    hintText: 'Confirm Password',
                     hintStyle: TextStyle(color: Colors.blue.withOpacity(0.6)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(18),
