@@ -62,7 +62,7 @@ class NumberOfPeopleField extends StatelessWidget {
           return 'Maximum number of people exceeded';
         }
         return null;
-        // Validation logic remains the same as before
+        
       },
     );
   }
