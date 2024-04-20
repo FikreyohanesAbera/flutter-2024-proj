@@ -52,18 +52,18 @@ class AdminPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Total Number'),
+                      decoration: const InputDecoration(labelText: 'Total Number'),
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Number of Seats'),
+                      decoration:const InputDecoration(labelText: 'Number of Seats'),
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Floor Number'),
+                      decoration:const InputDecoration(labelText: 'Floor Number'),
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Type'),
+                      decoration:const InputDecoration(labelText: 'Type'),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
