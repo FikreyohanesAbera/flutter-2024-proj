@@ -23,7 +23,7 @@ class IntroBody extends StatelessWidget {
                         padding: const EdgeInsets.all(12.0),
                         child: Column(
                           children: [
-                            SizedBox(height: 70),
+                            const SizedBox(height: 70),
                             Container(
                               height: 300,
                               width: 300,
