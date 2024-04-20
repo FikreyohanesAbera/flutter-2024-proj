@@ -94,10 +94,10 @@ class _ReservationFormState extends State<ReservationForm> {
                     _isConfirming = false;
                   });
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Icon(Icons.check_circle, color: Colors.green),
                           SizedBox(width: 8),
                           Text(
