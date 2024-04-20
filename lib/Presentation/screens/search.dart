@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import '../others/foodItems.dart';
+import '../others/food_items.dart';
 
 void main() {
   runApp(const Search());
