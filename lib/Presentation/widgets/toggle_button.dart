@@ -10,7 +10,7 @@ class ToggleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: IconButton(
-        icon: isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
+        icon: isDarkMode ? const Icon(Icons.light_mode) : const Icon(Icons.dark_mode),
         onPressed: toggleTheme,
       ),
     );

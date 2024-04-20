@@ -11,7 +11,7 @@ class BackgroundImage extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/tryq.jpg"),
+          image: AssetImage("assets/images/three.jpg"),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(Colors.black26, BlendMode.darken),
         ),

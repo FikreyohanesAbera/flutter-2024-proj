@@ -40,7 +40,7 @@ class LoginPageState extends State<LoginPage> {
           child: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/IMG_0355.jpg"),
+                image: AssetImage("assets/images/one.jpg"),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(Colors.black12, BlendMode.darken),
               ),

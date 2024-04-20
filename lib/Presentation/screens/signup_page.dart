@@ -20,7 +20,7 @@ class SignupPage extends StatelessWidget {
             height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/IMG_0356.jpg"),
+                image: AssetImage("assets/images/two.jpg"),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(Colors.black26, BlendMode.darken),
               ),
