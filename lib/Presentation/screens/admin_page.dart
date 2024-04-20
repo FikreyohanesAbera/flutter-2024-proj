@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:admin/widgets/toggle_button.dart';
-import 'package:admin/widgets/date_picker.dart';
+import '../widgets/toggle_button.dart';
+import '../widgets/date_picker.dart';
 
 class AdminPage extends StatelessWidget {
   final bool isDarkMode;
@@ -13,7 +13,11 @@ class AdminPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Center(child: Text('Admin Page', style: TextStyle(color: Colors.white),)),
+        title: Center(
+            child: Text(
+          'Admin Page',
+          style: TextStyle(color: Colors.white),
+        )),
         actions: [
           ToggleButton(isDarkMode: isDarkMode, toggleTheme: toggleTheme),
         ],
@@ -67,7 +71,8 @@ class AdminPage extends StatelessWidget {
                         },
                         child: Text('Add'),
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Colors.blueGrey[900],
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.blueGrey[900],
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -112,7 +117,8 @@ class AdminPage extends StatelessWidget {
                         },
                         child: Text('Get Table'),
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Colors.blueGrey[900],
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.blueGrey[900],
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -155,7 +161,8 @@ class AdminPage extends StatelessWidget {
                         },
                         child: Text('Update Table'),
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Colors.blueGrey[900],
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.blueGrey[900],
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -179,7 +186,8 @@ class AdminPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Total Number of Tables to Delete'),
+                      decoration: InputDecoration(
+                          labelText: 'Total Number of Tables to Delete'),
                     ),
                     SizedBox(height: 16),
                     Center(
@@ -189,7 +197,8 @@ class AdminPage extends StatelessWidget {
                         },
                         child: Text('Delete Table'),
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Colors.blueGrey[900],
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.blueGrey[900],
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),

@@ -127,7 +127,7 @@ class _ReservationFormState extends State<ReservationForm> {
                       style: TextStyle(color: Colors.black, fontSize: 18),
                     ),
               style: ElevatedButton.styleFrom(
-                primary: Colors.amberAccent,
+                backgroundColor: Colors.amberAccent,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),

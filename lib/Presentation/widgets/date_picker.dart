@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class DatePickerWidget extends StatelessWidget {
   final Function(DateTime?) onDateSelected;
 
-  const DatePickerWidget({super.key, required this.onDateSelected});
+  const DatePickerWidget({Key? key, required this.onDateSelected})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

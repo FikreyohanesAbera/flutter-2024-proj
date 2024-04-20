@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../others/bookingDetail.dart';
 import '../others/bookingsClass.dart';
-import '../widgets/My_bookingsState.dart';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
 
