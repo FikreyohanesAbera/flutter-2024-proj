@@ -53,8 +53,8 @@ class SearchBody extends StatelessWidget {
                   hintText: 'Search...',
                   hintStyle: TextStyle(
                       color: Color.fromARGB(
-                          255, 202, 193, 193)), // Placeholder text
-                  border: InputBorder.none, // Hide the border of the TextField
+                          255, 202, 193, 193)), 
+                  border: InputBorder.none, 
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   prefixIcon: Icon(Icons.search),
@@ -73,21 +73,21 @@ class SearchBody extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 200, // Height of each card
+            height: 200, 
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: foodItems.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   margin: const EdgeInsets.all(8),
-                  width: 150, // Width of each card
+                  width: 150,
                   child: Card(
                     color: const Color(0xff182032),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
-                          15), // Rounded corners for the card
+                          15),
                     ),
-                    elevation: 4, // Elevation for a card-like effect
+                    elevation: 4, 
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -98,8 +98,7 @@ class SearchBody extends StatelessWidget {
                             child: Image.asset(
                               foodItems[index].url!,
                               width:
-                                  140, // Make the image width to fill the card
-                              // height: 120, // Height of the image
+                                  140, 
                               fit: BoxFit.cover,
                             ),
                           ),
