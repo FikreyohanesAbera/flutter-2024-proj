@@ -78,7 +78,7 @@ class _MyBookingsState extends State<MyBookings> {
                 ChoiceChip(
                   label: const Text(
                     'Current',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   selected: _selectedChoice ==
                       'current', // Check against the correct choice
@@ -102,7 +102,7 @@ class _MyBookingsState extends State<MyBookings> {
                 ChoiceChip(
                   label: const Text(
                     'Past',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   selected: _selectedChoice == 'past',
                   onSelected: (selected) {
@@ -126,7 +126,7 @@ class _MyBookingsState extends State<MyBookings> {
                 ChoiceChip(
                   label: const Text(
                     'Canceled',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   selected: _selectedChoice ==
                       'canceled', // Check against the correct choice

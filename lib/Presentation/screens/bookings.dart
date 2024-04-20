@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './ExpandedBooking.dart';
 import '../widgets/My_bookingsState.dart';
+import './main_reserve.dart';
 
 void main() {
   runApp(const MainApp());
@@ -20,6 +21,7 @@ class MainApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/detail': (context) => const ExpandedBooking(),
+        '/reserve': (context) => const MainApp()
       },
       home: const MyBookings(),
     );

@@ -16,7 +16,7 @@ class DateField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onTap: () {
-        // Logic remains the same as before
+        _selectDate(context);
       },
       controller: dateController,
       readOnly: true,
@@ -47,5 +47,26 @@ class DateField extends StatelessWidget {
         contentPadding: const EdgeInsets.all(25),
       ),
     );
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(DateTime.now().year + 1),
+    );
+    if (picked != null) {
+      // Format the selected date without time
+      final formattedDate =
+          '${picked.year}-${_twoDigits(picked.month)}-${_twoDigits(picked.day)}';
+      dateController.text =
+          formattedDate; // Update the text field with the formatted date
+    }
+  }
+
+  String _twoDigits(int n) {
+    if (n >= 10) return '$n';
+    return '0$n';
   }
 }

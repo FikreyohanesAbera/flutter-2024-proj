@@ -305,7 +305,10 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                               30), // Adjust the value as needed
                                         ),
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/reserve');
+                                      },
                                       child: const Text(
                                         'Modify Booking',
                                         style: TextStyle(fontSize: 18),

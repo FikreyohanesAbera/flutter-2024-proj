@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class TypeField extends StatelessWidget {
   final String typeValue;
-  final void Function(bool) onTypeSelected;
+  final void Function(bool, String) onTypeSelected;
 
   const TypeField({
     required this.typeValue,
@@ -23,7 +23,9 @@ class TypeField extends StatelessWidget {
             ),
           ),
           selected: typeValue == 'Business',
-          onSelected: onTypeSelected,
+          onSelected: (selected) {
+            if (selected) onTypeSelected(true, 'Business');
+          },
           selectedColor: const Color.fromRGBO(0, 224, 231, 1),
           backgroundColor: const Color.fromRGBO(0, 147, 148, 1),
         ),
@@ -37,7 +39,9 @@ class TypeField extends StatelessWidget {
             ),
           ),
           selected: typeValue == 'Non-Business',
-          onSelected: onTypeSelected,
+          onSelected: (selected) {
+            if (selected) onTypeSelected(true, 'Non-Business');
+          },
           selectedColor: const Color.fromRGBO(0, 224, 231, 1),
           backgroundColor: const Color.fromRGBO(0, 147, 148, 1),
         ),

@@ -4,10 +4,13 @@ class NumberOfPeopleField extends StatelessWidget {
   TextEditingController numberOfPeopleController;
   bool isDateFocused;
   bool isTimeFocused;
+  bool isGuestFocused;
+
   NumberOfPeopleField({
     required this.numberOfPeopleController,
     required this.isDateFocused,
     required this.isTimeFocused,
+    required this.isGuestFocused,
     Key? key,
   }) : super(key: key);
 
@@ -17,6 +20,7 @@ class NumberOfPeopleField extends StatelessWidget {
       onTap: () {
         isDateFocused = false;
         isTimeFocused = false;
+        isGuestFocused = true;
       },
       controller: numberOfPeopleController,
       keyboardType: TextInputType.number,
@@ -27,10 +31,9 @@ class NumberOfPeopleField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: 'Number of People',
         labelStyle: TextStyle(
-          color: !(isDateFocused || isTimeFocused)
-              ? Colors.white
-              : Color.fromRGBO(159, 188, 204, 1),
-          fontSize: !(isDateFocused || isTimeFocused) ? 24 : 22,
+          color:
+              isGuestFocused ? Colors.white : Color.fromRGBO(159, 188, 204, 1),
+          fontSize: isGuestFocused ? 24 : 22,
         ),
         prefixIcon: const Icon(
           Icons.people,

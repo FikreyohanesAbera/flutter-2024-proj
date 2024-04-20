@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TimeField extends StatelessWidget {
-  TextEditingController timeController;
-  bool isDateFocused;
-  bool isTimeFocused;
+  final TextEditingController timeController;
+  final bool isDateFocused;
+  final bool isTimeFocused;
 
   TimeField({
     required this.timeController,
@@ -16,8 +16,7 @@ class TimeField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onTap: () {
-        isDateFocused = false;
-        isTimeFocused = true;
+        _selectTime(context); // Call _selectTime when the field is tapped
       },
       controller: timeController,
       readOnly: true,
@@ -48,5 +47,16 @@ class TimeField extends StatelessWidget {
         contentPadding: const EdgeInsets.all(25),
       ),
     );
+  }
+
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+    if (picked != null) {
+      // Update the text field with the selected time
+      timeController.text = picked.format(context);
+    }
   }
 }

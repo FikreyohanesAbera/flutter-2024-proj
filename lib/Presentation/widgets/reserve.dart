@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'number_of_people.dart';
 import 'date_field.dart';
 import 'type_field.dart';
 import 'time_field.dart';
+import 'branch_field.dart';
 
-class ReservationForm extends StatelessWidget {
+class ReservationForm extends StatefulWidget {
   final TextEditingController numberOfPeopleController;
   final TextEditingController dateController;
   final TextEditingController timeController;
   final String typeValue;
+  final String branchValue;
   final bool isDateFocused;
   final bool isTimeFocused;
-  final void Function(bool) onTypeSelected;
+  final bool isGuestFocused;
+  final void Function(bool, String) onTypeSelected;
+  final void Function(bool, String) onBranchSelected;
 
   const ReservationForm({
     required this.numberOfPeopleController,
@@ -21,9 +24,18 @@ class ReservationForm extends StatelessWidget {
     required this.typeValue,
     required this.isDateFocused,
     required this.isTimeFocused,
+    required this.isGuestFocused,
     required this.onTypeSelected,
+    required this.branchValue,
+    required this.onBranchSelected,
     Key? key,
   }) : super(key: key);
+  @override
+  _ReservationFormState createState() => _ReservationFormState();
+}
+
+class _ReservationFormState extends State<ReservationForm> {
+  bool _isConfirming = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,43 +43,98 @@ class ReservationForm extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 40, 20, 20),
         child: Form(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              NumberOfPeopleField(
-                numberOfPeopleController: numberOfPeopleController,
-                isDateFocused: isDateFocused,
-                isTimeFocused: isTimeFocused,
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            NumberOfPeopleField(
+              numberOfPeopleController: widget.numberOfPeopleController,
+              isGuestFocused: widget.isGuestFocused,
+              isDateFocused: widget.isDateFocused,
+              isTimeFocused: widget.isTimeFocused,
+            ),
+            const SizedBox(height: 25),
+            DateField(
+              dateController: widget.dateController,
+              isDateFocused: widget.isDateFocused,
+              isTimeFocused: widget.isTimeFocused,
+            ),
+            const SizedBox(height: 25),
+            TimeField(
+              timeController: widget.timeController,
+              isDateFocused: widget.isDateFocused,
+              isTimeFocused: widget.isTimeFocused,
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Type',
+              style: TextStyle(color: Colors.white, fontSize: 22),
+            ),
+            const SizedBox(height: 3),
+            TypeField(
+              typeValue: widget.typeValue,
+              onTypeSelected: widget.onTypeSelected,
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Branch',
+              style: TextStyle(color: Colors.white, fontSize: 22),
+            ),
+            const SizedBox(height: 3),
+            BranchField(
+              branchValue: widget.branchValue,
+              onBranchSelected: widget.onBranchSelected,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _isConfirming = true;
+                });
+                Future.delayed(const Duration(seconds: 1), () {
+                  setState(() {
+                    _isConfirming = false;
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(Icons.check_circle, color: Colors.green),
+                          SizedBox(width: 8),
+                          Text(
+                            'Successfully Booked',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.black, fontSize: 20),
+                          ),
+                        ],
+                      ),
+                      duration: Duration(seconds: 3),
+                      backgroundColor: Colors.white,
+                    ),
+                  );
+                });
+              },
+              child: _isConfirming
+                  ? const SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+                      ),
+                    )
+                  : const Text(
+                      'Confirm Booking',
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                    ),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.amberAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                minimumSize: const Size(double.infinity, 50),
               ),
-              const SizedBox(height: 40),
-              DateField(
-                dateController: dateController,
-                isDateFocused: isDateFocused,
-                isTimeFocused: isTimeFocused,
-              ),
-              const SizedBox(height: 40),
-              TimeField(
-                timeController: timeController,
-                isDateFocused: isDateFocused,
-                isTimeFocused: isTimeFocused,
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Type',
-                style: TextStyle(color: Colors.white, fontSize: 22),
-              ),
-              const SizedBox(height: 20),
-              TypeField(
-                typeValue: typeValue,
-                onTypeSelected: onTypeSelected,
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Submit'),
-              ),
-            ],
-          ),
+            ),
+          ]),
         ),
       ),
     );
