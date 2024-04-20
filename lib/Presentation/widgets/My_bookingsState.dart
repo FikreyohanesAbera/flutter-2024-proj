@@ -81,12 +81,12 @@ class _MyBookingsState extends State<MyBookings> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   selected: _selectedChoice ==
-                      'current', // Check against the correct choice
+                      'current', 
                   onSelected: (selected) {
                     setState(() {
                       _selectedChoice = selected
                           ? 'current'
-                          : ''; // Update _selectedChoice correctly
+                          : ''; 
                     });
                   },
                   selectedColor: Colors.blue,
@@ -111,16 +111,16 @@ class _MyBookingsState extends State<MyBookings> {
                     });
                   },
                   selectedColor: Colors.blue,
-                  // Color when chip is selected
+                  
                   backgroundColor:
-                      const Color(0xff101520), // Color when chip is unselected
+                      const Color(0xff101520), 
                   shape: RoundedRectangleBorder(
                     side: const BorderSide(
-                      color: Colors.blue, // Border color
-                      width: 1, // Border width
+                      color: Colors.blue,
+                      width: 1,
                     ),
                     borderRadius: BorderRadius.circular(
-                        30), // Adjust border radius as needed
+                        30), 
                   ),
                 ),
                 ChoiceChip(
@@ -129,12 +129,12 @@ class _MyBookingsState extends State<MyBookings> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   selected: _selectedChoice ==
-                      'canceled', // Check against the correct choice
+                      'canceled', 
                   onSelected: (selected) {
                     setState(() {
                       _selectedChoice = selected
                           ? 'canceled'
-                          : ''; // Update _selectedChoice correctly
+                          : ''; 
                     });
                   },
                   selectedColor: Colors.blue,
@@ -225,7 +225,7 @@ class _MyBookingsState extends State<MyBookings> {
                                     style: OutlinedButton.styleFrom(
                                       side: const BorderSide(
                                         color: Color.fromARGB(153, 56, 231,
-                                            202), // Change color here
+                                            202), 
                                       ),
                                     ),
                                     onPressed: () {
