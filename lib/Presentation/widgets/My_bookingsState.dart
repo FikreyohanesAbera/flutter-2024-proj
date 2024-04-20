@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../others/booking_class.dart';
-import '../screens/expanded_booking.dart';
+import '../others/bookingsClass.dart';
+import '../screens/ExpandedBooking.dart';
 import '../screens/bookings.dart';
 
 class MyBookings extends StatefulWidget {
@@ -80,13 +80,10 @@ class _MyBookingsState extends State<MyBookings> {
                     'Current',
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
-                  selected: _selectedChoice ==
-                      'current', 
+                  selected: _selectedChoice == 'current',
                   onSelected: (selected) {
                     setState(() {
-                      _selectedChoice = selected
-                          ? 'current'
-                          : ''; 
+                      _selectedChoice = selected ? 'current' : '';
                     });
                   },
                   selectedColor: Colors.blue,
@@ -111,16 +108,13 @@ class _MyBookingsState extends State<MyBookings> {
                     });
                   },
                   selectedColor: Colors.blue,
-                  
-                  backgroundColor:
-                      const Color(0xff101520), 
+                  backgroundColor: const Color(0xff101520),
                   shape: RoundedRectangleBorder(
                     side: const BorderSide(
                       color: Colors.blue,
                       width: 1,
                     ),
-                    borderRadius: BorderRadius.circular(
-                        30), 
+                    borderRadius: BorderRadius.circular(30),
                   ),
                 ),
                 ChoiceChip(
@@ -128,13 +122,10 @@ class _MyBookingsState extends State<MyBookings> {
                     'Canceled',
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
-                  selected: _selectedChoice ==
-                      'canceled', 
+                  selected: _selectedChoice == 'canceled',
                   onSelected: (selected) {
                     setState(() {
-                      _selectedChoice = selected
-                          ? 'canceled'
-                          : ''; 
+                      _selectedChoice = selected ? 'canceled' : '';
                     });
                   },
                   selectedColor: Colors.blue,
@@ -224,8 +215,8 @@ class _MyBookingsState extends State<MyBookings> {
                                   OutlinedButton(
                                     style: OutlinedButton.styleFrom(
                                       side: const BorderSide(
-                                        color: Color.fromARGB(153, 56, 231,
-                                            202), 
+                                        color:
+                                            Color.fromARGB(153, 56, 231, 202),
                                       ),
                                     ),
                                     onPressed: () {
@@ -242,7 +233,7 @@ class _MyBookingsState extends State<MyBookings> {
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(width: 20),
+                                  const SizedBox(width: 10),
                                   if (_selectedChoice == 'current')
                                     OutlinedButton(
                                       style: OutlinedButton.styleFrom(

@@ -1,7 +1,6 @@
 import '../widgets/username.dart';
 import 'package:flutter/material.dart';
 
-
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
 
@@ -20,7 +19,7 @@ class SignupPage extends StatelessWidget {
             height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/two.jpg"),
+                image: AssetImage("assets/images/two.JPG"),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(Colors.black26, BlendMode.darken),
               ),
@@ -117,10 +116,11 @@ class SignupPage extends StatelessWidget {
                         ),
                         obscureText: true,
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed:
-                            () {}, //Elevated button to connect with the home page or the user profile page.
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/login');
+                        }, //Elevated button to connect with the home page or the user profile page.
                         style: ElevatedButton.styleFrom(
                           shape: const StadiumBorder(),
                           padding: const EdgeInsets.symmetric(vertical: 16),
@@ -134,7 +134,7 @@ class SignupPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 5,
                       ),
                       const Center(
                         child: Text(
@@ -145,7 +145,7 @@ class SignupPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 10,
                       ),
                       Container(
                         decoration: BoxDecoration(
@@ -194,7 +194,7 @@ class SignupPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

@@ -41,7 +41,7 @@ class _ReservationFormState extends State<ReservationForm> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 40, 20, 20),
+        padding: const EdgeInsets.fromLTRB(20, 30, 20, 15),
         child: Form(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

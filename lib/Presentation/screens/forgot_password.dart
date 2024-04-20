@@ -29,18 +29,20 @@ class ForgotPasswordPage extends StatelessWidget {
                     color: Colors.blue.withOpacity(0.6),
                   ),
                 ),
+                const SizedBox(height: 20),
                 const Text(
                   'Please provide your email address. We will send you a secure link to reset your password.',
                   style: TextStyle(
                       color: Color.fromARGB(213, 255, 255, 255),
-                      fontWeight: FontWeight.w300),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 17),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 25,
                 ),
                 const EmailTextField(),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 ElevatedButton(
                   onPressed: () {

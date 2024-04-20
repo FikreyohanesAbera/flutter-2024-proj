@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'expanded_booking.dart';
+import './ExpandedBooking.dart';
 import '../widgets/My_bookingsState.dart';
 import './main_reserve.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const Bookings());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
+class Bookings extends StatelessWidget {
+  const Bookings({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Reservation Form',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        useMaterial3: true,
       ),
       initialRoute: '/',
       routes: {
         '/detail': (context) => const ExpandedBooking(),
-        '/reserve': (context) => const MainApp()
+        '/reserve': (context) => const Bookings()
       },
       home: const MyBookings(),
     );

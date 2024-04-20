@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/login_page.dart';
 
 class IntroBody extends StatelessWidget {
   const IntroBody({super.key});
@@ -23,7 +24,7 @@ class IntroBody extends StatelessWidget {
                         padding: const EdgeInsets.all(12.0),
                         child: Column(
                           children: [
-                            const SizedBox(height: 70),
+                            const SizedBox(height: 36),
                             Container(
                               height: 300,
                               width: 300,
@@ -34,7 +35,7 @@ class IntroBody extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 60),
+                            const SizedBox(height: 30),
                             const Center(
                               child: Text(
                                 "Manage Your Table",
@@ -63,7 +64,13 @@ class IntroBody extends StatelessWidget {
                     const SizedBox(height: 20),
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginPage()),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue,
                           padding: const EdgeInsets.symmetric(

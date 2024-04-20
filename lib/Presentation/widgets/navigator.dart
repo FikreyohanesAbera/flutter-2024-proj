@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import './Presentation/screens/signup_page.dart';
-import './Presentation/screens/login_page.dart';
-import './Presentation/screens/forgot_password.dart';
-import './Presentation/screens/reset_password.dart';
-
-
+import '../screens/signup_page.dart';
+import '../screens/login_page.dart';
+import '../screens/forgot_password.dart';
+import '../screens/reset_password.dart';
 
 void main() {
   runApp(const Start());

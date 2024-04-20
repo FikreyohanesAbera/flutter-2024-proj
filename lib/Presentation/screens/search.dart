@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
-import '../others/food_items.dart';
+import '../others/foodItems.dart';
+import './main_reserve.dart';
 
 void main() {
   runApp(const Search());
@@ -36,7 +36,7 @@ class SearchBody extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title:const Text("Search"),
+        title: Text("Search"),
       ),
       backgroundColor: const Color(0xff101520),
       body: Column(
@@ -51,10 +51,9 @@ class SearchBody extends StatelessWidget {
               child: const TextField(
                 decoration: InputDecoration(
                   hintText: 'Search...',
-                  hintStyle: TextStyle(
-                      color: Color.fromARGB(
-                          255, 202, 193, 193)), 
-                  border: InputBorder.none, 
+                  hintStyle:
+                      TextStyle(color: Color.fromARGB(255, 202, 193, 193)),
+                  border: InputBorder.none,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   prefixIcon: Icon(Icons.search),
@@ -73,49 +72,56 @@ class SearchBody extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 200, 
+            height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: foodItems.length,
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  margin: const EdgeInsets.all(8),
-                  width: 150,
-                  child: Card(
-                    color: const Color(0xff182032),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          15),
-                    ),
-                    elevation: 4, 
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        ClipRRect(
-                          borderRadius:
-                              const BorderRadius.vertical(top: Radius.circular(15)),
-                          child: Center(
-                            child: Image.asset(
-                              foodItems[index].url!,
-                              width:
-                                  140, 
-                              fit: BoxFit.cover,
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainReserve()),
+                    );
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    width: 150,
+                    child: Card(
+                      color: const Color(0xff182032),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      elevation: 4,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          ClipRRect(
+                            borderRadius:
+                                BorderRadius.vertical(top: Radius.circular(15)),
+                            child: Center(
+                              child: Image.asset(
+                                foodItems[index].url!,
+                                width: 140,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Center(
-                            child: Text(
-                              foodItems[index].name!,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                  color: Color.fromARGB(255, 202, 193, 193)),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Center(
+                              child: Text(
+                                foodItems[index].name!,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: Color.fromARGB(255, 202, 193, 193)),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 );

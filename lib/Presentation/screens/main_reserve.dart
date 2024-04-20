@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../widgets/reservation_form_page.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MainReserve());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
+class MainReserve extends StatelessWidget {
+  const MainReserve({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

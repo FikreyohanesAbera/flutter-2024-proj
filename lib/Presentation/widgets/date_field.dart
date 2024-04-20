@@ -9,8 +9,8 @@ class DateField extends StatelessWidget {
     required this.dateController,
     required this.isDateFocused,
     required this.isTimeFocused,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,14 @@ class DateField extends StatelessWidget {
       controller: dateController,
       readOnly: true,
       style: TextStyle(
-        color: isDateFocused ? Colors.white :const Color.fromRGBO(159, 188, 204, 1),
+        color: isDateFocused ? Colors.white : Color.fromRGBO(159, 188, 204, 1),
         fontSize: isDateFocused ? 20 : 20,
       ),
       decoration: InputDecoration(
         labelText: 'Date',
         labelStyle: TextStyle(
           color:
-              isDateFocused ? Colors.white :const Color.fromRGBO(159, 188, 204, 1),
+              isDateFocused ? Colors.white : Color.fromRGBO(159, 188, 204, 1),
           fontSize: isDateFocused ? 24 : 23,
         ),
         prefixIcon: const Icon(
@@ -44,7 +44,7 @@ class DateField extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: Colors.blue, width: 3),
         ),
-        contentPadding: const EdgeInsets.all(25),
+        contentPadding: const EdgeInsets.all(20),
       ),
     );
   }
@@ -57,11 +57,9 @@ class DateField extends StatelessWidget {
       lastDate: DateTime(DateTime.now().year + 1),
     );
     if (picked != null) {
-     
       final formattedDate =
           '${picked.year}-${_twoDigits(picked.month)}-${_twoDigits(picked.day)}';
-      dateController.text =
-          formattedDate;
+      dateController.text = formattedDate;
     }
   }
 

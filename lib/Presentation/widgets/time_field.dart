@@ -16,19 +16,19 @@ class TimeField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onTap: () {
-        _selectTime(context); 
+        _selectTime(context);
       },
       controller: timeController,
       readOnly: true,
       style: TextStyle(
-        color: isTimeFocused ? Colors.white :const Color.fromRGBO(159, 188, 204, 1),
+        color: isTimeFocused ? Colors.white : Color.fromRGBO(159, 188, 204, 1),
         fontSize: isTimeFocused ? 20 : 20,
       ),
       decoration: InputDecoration(
         labelText: 'Time',
         labelStyle: TextStyle(
           color:
-              isTimeFocused ? Colors.white :const Color.fromRGBO(159, 188, 204, 1),
+              isTimeFocused ? Colors.white : Color.fromRGBO(159, 188, 204, 1),
           fontSize: isTimeFocused ? 24 : 23,
         ),
         prefixIcon: const Icon(
@@ -44,7 +44,7 @@ class TimeField extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: Colors.blue, width: 3),
         ),
-        contentPadding: const EdgeInsets.all(25),
+        contentPadding: const EdgeInsets.all(20),
       ),
     );
   }
@@ -55,7 +55,6 @@ class TimeField extends StatelessWidget {
       initialTime: TimeOfDay.now(),
     );
     if (picked != null) {
-      
       timeController.text = picked.format(context);
     }
   }

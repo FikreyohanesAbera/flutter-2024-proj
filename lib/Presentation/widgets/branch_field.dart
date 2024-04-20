@@ -15,11 +15,14 @@ class BranchField extends StatelessWidget {
     return Wrap(
       children: <Widget>[
         ChoiceChip(
-          label: const Padding(
-            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 4),
-            child: Text(
-              'Arat kilo',
-              style: TextStyle(fontSize: 19),
+          label: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Arat kilo',
+                style: TextStyle(fontSize: 16),
+              ),
             ),
           ),
           selected: branchValue == 'Arat kilo',
@@ -31,11 +34,11 @@ class BranchField extends StatelessWidget {
         ),
         const SizedBox(width: 7),
         ChoiceChip(
-          label: const Padding(
-            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+          label: FittedBox(
+            fit: BoxFit.scaleDown,
             child: Text(
               'Tor Hailoch',
-              style: TextStyle(fontSize: 19),
+              style: TextStyle(fontSize: 16),
             ),
           ),
           selected: branchValue == 'Tor Hailoch',
@@ -47,11 +50,14 @@ class BranchField extends StatelessWidget {
         ),
         const SizedBox(width: 7),
         ChoiceChip(
-          label: const Padding(
-            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 4),
-            child: Text(
-              'Mexico',
-              style: TextStyle(fontSize: 19),
+          label: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Mexico',
+                style: TextStyle(fontSize: 16),
+              ),
             ),
           ),
           selected: branchValue == 'Mexico',

@@ -7,8 +7,8 @@ class TypeField extends StatelessWidget {
   const TypeField({
     required this.typeValue,
     required this.onTypeSelected,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +16,13 @@ class TypeField extends StatelessWidget {
       children: <Widget>[
         ChoiceChip(
           label: const Padding(
-            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 4),
-            child: Text(
-              'Business',
-              style: TextStyle(fontSize: 19),
+            padding: EdgeInsets.symmetric(vertical: 2, horizontal: 1),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Business',
+                style: TextStyle(fontSize: 16), // Reduced font size
+              ),
             ),
           ),
           selected: typeValue == 'Business',
@@ -32,10 +35,13 @@ class TypeField extends StatelessWidget {
         const SizedBox(width: 10),
         ChoiceChip(
           label: const Padding(
-            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 4),
-            child: Text(
-              'Non-Business',
-              style: TextStyle(fontSize: 19),
+            padding: EdgeInsets.symmetric(vertical: 2, horizontal: 1),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Non-Business',
+                style: TextStyle(fontSize: 16),
+              ),
             ),
           ),
           selected: typeValue == 'Non-Business',

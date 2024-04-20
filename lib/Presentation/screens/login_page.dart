@@ -1,5 +1,7 @@
 import '../../Presentation/widgets/username.dart';
 import 'package:flutter/material.dart';
+import './HomePage.dart';
+import './AdminPageTransfer.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,6 +12,7 @@ class LoginPage extends StatefulWidget {
 
 class LoginPageState extends State<LoginPage> {
   String _userType = 'User';
+  bool _isDarkMode = false;
 
   void _handleUserTypeChange(String? value) {
     setState(() {
@@ -19,9 +22,13 @@ class LoginPageState extends State<LoginPage> {
 
   void _handleLogin() {
     if (_userType == 'Admin') {
-      Navigator.pushNamed(context, '/reset_password');
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => AdminPageTransfer()));
     } else {
-      Navigator.pushNamed(context, '/forgot_password');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
     }
   }
 
