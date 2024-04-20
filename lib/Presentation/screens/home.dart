@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'about.dart';
 import '../widgets/custom_card.dart';
 import '../widgets/food_image.dart';
-import '../widgets/getcolor.dart';
+import '../widgets/get_color.dart';
 
 void main() {
   runApp(const MyApp());
