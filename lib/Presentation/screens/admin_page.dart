@@ -23,7 +23,7 @@ class AdminPage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding:const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -69,7 +69,7 @@ class AdminPage extends StatelessWidget {
                         onPressed: () {
                           // Implement add table functionality
                         },
-                        child: Text('Add'),
+                        child:const Text('Add'),
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.blueGrey[900],
@@ -132,7 +132,7 @@ class AdminPage extends StatelessWidget {
             const SizedBox(height: 16),
             Card(
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding:const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -142,24 +142,24 @@ class AdminPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Total Number'),
+                      decoration:const InputDecoration(labelText: 'Total Number'),
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Number of Seats'),
+                      decoration:const InputDecoration(labelText: 'Number of Seats'),
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Floor Number'),
+                      decoration:const InputDecoration(labelText: 'Floor Number'),
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Type'),
+                      decoration:const InputDecoration(labelText: 'Type'),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
                           // Implement update table functionality
                         },
-                        child: Text('Update Table'),
+                        child:const Text('Update Table'),
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.blueGrey[900],
@@ -173,10 +173,10 @@ class AdminPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Card(
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding:const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -186,16 +186,16 @@ class AdminPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration:const InputDecoration(
                           labelText: 'Total Number of Tables to Delete'),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
                           // Implement delete table functionality
                         },
-                        child: Text('Delete Table'),
+                        child:const Text('Delete Table'),
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.blueGrey[900],
