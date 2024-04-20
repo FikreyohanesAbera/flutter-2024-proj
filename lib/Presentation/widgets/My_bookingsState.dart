@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../others/bookingsClass.dart';
+import '../others/booking_class.dart';
 import '../screens/expanded_booking.dart';
 import '../screens/bookings.dart';
 
