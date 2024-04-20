@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/intropage.dart';
+import '../widgets/intro_page.dart';
 
 void main() {
   runApp(const Intro());
