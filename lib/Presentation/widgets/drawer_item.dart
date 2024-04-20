@@ -12,12 +12,12 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      margin:const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       elevation: 2,
       child: ListTile(
         title: Text(
           title,
-          style: TextStyle(fontSize: 16),
+          style:const TextStyle(fontSize: 16),
         ),
         onTap: onTap,
       ),
