@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../others/bookingsClass.dart';
-import '../screens/ExpandedBooking.dart';
+import '../screens/expanded_booking.dart';
 import '../screens/bookings.dart';
 
 class MyBookings extends StatefulWidget {

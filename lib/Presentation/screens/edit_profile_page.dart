@@ -21,23 +21,23 @@ class _EditProfilePageState extends State<EditProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextFormField(
-              decoration: InputDecoration(labelText: 'First Name'),
+              decoration:const InputDecoration(labelText: 'First Name'),
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Last Name'),
+              decoration:const InputDecoration(labelText: 'Last Name'),
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Phone Number'),
+              decoration:const InputDecoration(labelText: 'Phone Number'),
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Email'),
+              decoration:const InputDecoration(labelText: 'Email'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Save profile changes
               },
-              child: Text('Save'),
+              child:const Text('Save'),
             ),
           ],
         ),

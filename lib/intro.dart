@@ -47,7 +47,7 @@ class Intro extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 60),
-                        Center(
+                        const Center(
                           child: Text(
                             "Manage Your Table",
                             style: TextStyle(
@@ -58,7 +58,7 @@ class Intro extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Center(
+                        const Center(
                           child: Text(
                             "Reservation",
                             style: TextStyle(

@@ -14,7 +14,7 @@ class ExpandedBooking extends StatefulWidget {
 }
 
 class _ExpandedBookingState extends State<ExpandedBooking> {
-  late DateTime _RemainingTime = DateTime.now();
+  late DateTime _remainingTime = DateTime.now();
   int numOfPeople = 0;
   String type = '';
   String branch = '';
@@ -26,7 +26,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
   @override
   void initState() {
     super.initState();
-    _RemainingTime = DateTime.now();
+    _remainingTime = DateTime.now();
     // Update the Remaining time every second
     _timer = Timer.periodic(const Duration(seconds: 1), _updateTime);
   }
@@ -39,7 +39,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
 
   void _updateTime(Timer timer) {
     setState(() {
-      _RemainingTime = DateTime.now();
+      _remainingTime = DateTime.now();
     });
   }
 
@@ -92,7 +92,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                           Padding(
                             padding: const EdgeInsets.all(5.0),
                             child: Text(
-                              '${_RemainingTime.hour}:${_RemainingTime.minute}:${_RemainingTime.second}',
+                              '${_remainingTime.hour}:${_remainingTime.minute}:${_remainingTime.second}',
                               style: const TextStyle(
                                   fontSize: 25,
                                   color: Color.fromRGBO(33, 34, 33, 1)),
@@ -248,7 +248,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                                   '${yourData.branch}',
                                                   style: const TextStyle(
                                                       color:
-                                                          const Color.fromARGB(
+                                                          Color.fromARGB(
                                                               255, 32, 39, 37),
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -279,7 +279,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                       child: Padding(
                                         padding: const EdgeInsets.all(2.0),
                                         child: Text(
-                                          '${_RemainingTime.hour}:${_RemainingTime.minute}:${_RemainingTime.second}',
+                                          '${_remainingTime.hour}:${_remainingTime.minute}:${_remainingTime.second}',
                                           style: const TextStyle(
                                               fontSize: 18,
                                               color: Color.fromRGBO(

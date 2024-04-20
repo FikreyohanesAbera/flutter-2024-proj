@@ -36,7 +36,7 @@ class SearchBody extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Search"),
+        title:const Text("Search"),
       ),
       backgroundColor: const Color(0xff101520),
       body: Column(
@@ -93,7 +93,7 @@ class SearchBody extends StatelessWidget {
                       children: <Widget>[
                         ClipRRect(
                           borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(15)),
+                              const BorderRadius.vertical(top: Radius.circular(15)),
                           child: Center(
                             child: Image.asset(
                               foodItems[index].url!,

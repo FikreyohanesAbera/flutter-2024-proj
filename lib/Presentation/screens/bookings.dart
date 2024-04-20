@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './ExpandedBooking.dart';
+import 'expanded_booking.dart';
 import '../widgets/My_bookingsState.dart';
 import './main_reserve.dart';
 
