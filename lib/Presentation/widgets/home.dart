@@ -4,8 +4,110 @@ import 'custom_card.dart';
 import 'food_image.dart';
 import 'get_color.dart';
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'dart:math';
+
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 class HomeContent extends StatelessWidget {
-  const HomeContent({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Circular Food Table',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: CircularFoodTable(),
+    );
+  }
+}
+
+class CircularFoodTable extends StatefulWidget {
+  @override
+  _CircularFoodTableState createState() => _CircularFoodTableState();
+}
+
+class _CircularFoodTableState extends State<CircularFoodTable>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _rotationAnimation;
+  double _rotationAngle = 0.0;
+  List<Widget> dishes = [];
+  List<String> foodIndex = ["Doro", "Kitfo", "Pasta", "Tibs"];
+  Map<String, String> foodDescription = {
+    "Doro":
+        "A Habesha Masterpiece,A national dish of our country. Enjoy one made by our chefs",
+    "Kitfo":
+        "The Beloved Gurage dish. It can be raw or fried. You can devour with Kocho,Injera,bread or whatever you like.",
+    "Pasta":
+        "An Italian favorite in Ethiopia. One of the finest dishes of the world is available here with many different side dishes",
+    "Tibs":
+        "Another Cultural food common in Ethiopia. We have sheep,cow and goat tibs that you can enjoy with your family and friends"
+  };
+  int changingIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+    );
+    _rotationAnimation = Tween<double>(
+      begin: 0.0,
+      end: 0.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    )..addListener(() {
+        setState(() {
+          _rotationAngle = _rotationAnimation.value;
+        });
+      });
+    _buildDishesAroundTable();
+  }
+
+  void changeText(bool forward) {
+    setState(() {
+      forward ? changingIndex++ : changingIndex--;
+      if (changingIndex == 4) {
+        changingIndex = 0;
+      } else if (changingIndex == -1) {
+        changingIndex = 3;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  void _rotateTable(double angle) {
+    double targetAngle =
+        (_rotationAngle + (4 * angle)) % (2 * pi); // Double the angle parameter
+
+    _rotationAnimation = Tween<double>(
+      begin: _rotationAngle,
+      end: targetAngle,
+    ).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
+
+    _animationController.reset();
+    _animationController.duration =
+        Duration(milliseconds: 900); // Restore original animation duration
+    _animationController.forward();
+
+    _rotationAngle = targetAngle;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +237,7 @@ class HomeContent extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         Container(
-                          color: const Color.fromARGB(255, 202, 193, 193),
+                          color: Colors.white,
                           child: SizedBox(
                             height: 450,
                             child: ListView(
@@ -173,6 +275,122 @@ class HomeContent extends StatelessWidget {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 70,
+                    color: Colors.white,
+                    child: Center(
+                      child: Text("Popular feasts on the table",
+                          style: GoogleFonts.ibmPlexSans(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xff101520))),
+                    ),
+                  ),
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Container(
+                    color: Colors.white,
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRect(
+                            child: Transform.translate(
+                              offset: Offset(-285, 0),
+                              child: Row(
+                                children: [
+                                  AnimatedBuilder(
+                                    animation: _animationController,
+                                    builder: (context, child) {
+                                      return Transform.rotate(
+                                        angle: _rotationAngle,
+                                        child: Container(
+                                          width: 420,
+                                          height: 420,
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.7),
+                                                spreadRadius: 5,
+                                                blurRadius: 7,
+                                                offset: Offset(0,
+                                                    3), // changes position of shadow
+                                              ),
+                                            ],
+                                            image: DecorationImage(
+                                                image: AssetImage(
+                                                    "assets/table.jpg"),
+                                                repeat: ImageRepeat.repeat),
+                                            shape: BoxShape.circle,
+                                            color: Colors.brown,
+                                          ),
+                                          child: Stack(
+                                            children: dishes,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  SizedBox(width: 25),
+                                  Container(
+                                    width: 200,
+                                    height: 200,
+                                    // color: Colors.amberAccent,
+                                    child: Column(children: [
+                                      AnimatedOpacity(
+                                        duration: Duration(seconds: 1),
+                                        opacity: 1,
+                                        child: Text(
+                                          '${foodIndex[changingIndex]}',
+                                          style: GoogleFonts.vesperLibre(
+                                              fontSize: 24,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      SizedBox(height: 15),
+                                      Text(
+                                        '${foodDescription['${foodIndex[changingIndex]}']}',
+                                        style:
+                                            GoogleFonts.palanquin(fontSize: 17),
+                                      )
+                                    ]),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(width: 160),
+                              IconButton(
+                                icon: Icon(Icons.arrow_back),
+                                onPressed: () {
+                                  _rotateTable(-pi / 8);
+                                  changeText(false); // Rotate clockwise
+                                },
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.arrow_forward),
+                                onPressed: () {
+                                  _rotateTable(pi / 8);
+                                  changeText(true); // Rotate counterclockwise
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 Container(
                   transform: Matrix4.rotationZ(0.1),
                   width: 300,
@@ -202,49 +420,55 @@ class HomeContent extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.star,
-                      color: Color.fromARGB(255, 221, 183, 77),
-                      size: 30,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Popular foods on tables",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 221, 77, 89),
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  color: const Color.fromARGB(255, 29, 40, 63),
-                  child: SizedBox(
-                    height: 200,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: const [
-                        FoodImageWidget(imagePath: 'assets/tibs.png'),
-                        FoodImageWidget(imagePath: 'assets/tihilo.jpg'),
-                        FoodImageWidget(imagePath: 'assets/Rawmeat.jpg'),
-                        FoodImageWidget(imagePath: 'assets/food.jpeg'),
-                        FoodImageWidget(imagePath: 'assets/pasta.jpeg'),
-                        FoodImageWidget(imagePath: 'assets/Bursame.jpg'),
-                        FoodImageWidget(imagePath: 'assets/Rawmeat.jpg'),
-                        FoodImageWidget(imagePath: 'assets/doro.png'),
-                      ],
-                    ),
-                  ),
-                ),
                 const SizedBox(height: 50.0),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  void _buildDishesAroundTable() {
+    List<String> foods = [
+      "assets/doro.png",
+      "assets/tibs.png",
+      "assets/pasta.png",
+      "assets/kitfo.png"
+    ];
+
+    dishes.clear(); // Clear existing dishes
+
+    double radius = 140;
+    double dishAngleIncrement =
+        2 * pi / 4; // Change dish angle increment to create 4 dishes
+
+    for (int i = 0; i < 4; i++) {
+      // Change loop condition to create 4 dishes
+      double currentAngle =
+          dishAngleIncrement * i + _rotationAngle; // Consider rotation angle
+      double offsetX = radius * cos(currentAngle);
+      double offsetY = radius * sin(currentAngle);
+
+      dishes.add(
+        Positioned(
+          top: 150 + offsetY - 0,
+          left: 150 + offsetX - 2,
+          child: _buildDishWidget(i, foods[i]),
+        ),
+      );
+    }
+  }
+
+  Widget _buildDishWidget(int index, String food) {
+    return GestureDetector(
+      onTap: () {
+        _rotateTable((pi / 8) * (index - 4));
+      },
+      child: Image.asset(
+        '$food',
+        width: 120,
+        height: 120,
       ),
     );
   }

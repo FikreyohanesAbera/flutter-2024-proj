@@ -1,8 +1,34 @@
 import 'package:flutter/material.dart';
 import '../screens/login_page.dart';
 
-class IntroBody extends StatelessWidget {
-  const IntroBody({super.key});
+class IntroBody extends StatefulWidget {
+  const IntroBody({Key? key}) : super(key: key);
+
+  @override
+  _IntroBodyState createState() => _IntroBodyState();
+}
+
+class _IntroBodyState extends State<IntroBody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 4),
+    );
+    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,26 +61,33 @@ class IntroBody extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 30),
-                            const Center(
-                              child: Text(
-                                "Manage Your Table",
-                                style: TextStyle(
-                                  fontSize: 35,
-                                  fontFamily: "B",
-                                  color: Color.fromARGB(255, 221, 77, 89),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            const Center(
-                              child: Text(
-                                "Reservation",
-                                style: TextStyle(
-                                  fontSize: 40,
-                                  fontFamily: "B",
-                                  color: Color.fromARGB(255, 221, 77, 89),
-                                ),
+                            FadeTransition(
+                              opacity: _animation,
+                              child: Column(
+                                children: [
+                                  const SizedBox(height: 30),
+                                  const Center(
+                                    child: Text(
+                                      "Manage Your Table",
+                                      style: TextStyle(
+                                        fontSize: 35,
+                                        fontFamily: "B",
+                                        color: Color.fromARGB(255, 221, 77, 89),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 20),
+                                  const Center(
+                                    child: Text(
+                                      "Reservation",
+                                      style: TextStyle(
+                                        fontSize: 40,
+                                        fontFamily: "B",
+                                        color: Color.fromARGB(255, 221, 77, 89),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -68,7 +101,8 @@ class IntroBody extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LoginPage()),
+                              builder: (context) => const LoginPage(),
+                            ),
                           );
                         },
                         style: ElevatedButton.styleFrom(
