@@ -27,13 +27,13 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
   void initState() {
     super.initState();
     _remainingTime = DateTime.now();
-    // Update the Remaining time every second
+    
     _timer = Timer.periodic(const Duration(seconds: 1), _updateTime);
   }
 
   @override
   void dispose() {
-    _timer.cancel(); // Cancel the timer when the widget is disposed
+    _timer.cancel(); 
     super.dispose();
   }
 
@@ -49,7 +49,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
 
     ReservedTable? yourData;
 
-    // Check if arguments is not null and is of type ReservedTable
+   
     if (arguments != null && arguments is ReservedTable) {
       yourData = arguments;
       yourData.guests;
@@ -60,10 +60,10 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
       yourData.date;
     } else {
       throw ErrorSummary("message");
-      // Handle the case where arguments is null or not of type ReservedTable
+      
     }
 
-    // Use yourData if it's not null
+    
 
     return Scaffold(
       appBar: AppBar(
@@ -168,7 +168,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                           spreadRadius: 1,
                                           blurRadius: 1,
                                           offset: Offset(-1,
-                                              0), // changes position of shadow
+                                              0), 
                                         ),
                                       ],
                                     ),
@@ -300,7 +300,7 @@ class _ExpandedBookingState extends State<ExpandedBooking> {
                                       style: ElevatedButton.styleFrom(
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
-                                              30), // Adjust the value as needed
+                                              30), 
                                         ),
                                       ),
                                       onPressed: () {
