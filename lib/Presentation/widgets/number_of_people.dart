@@ -32,7 +32,7 @@ class NumberOfPeopleField extends StatelessWidget {
         labelText: 'Number of People',
         labelStyle: TextStyle(
           color:
-              isGuestFocused ? Colors.white : Color.fromRGBO(159, 188, 204, 1),
+              isGuestFocused ? Colors.white :const Color.fromRGBO(159, 188, 204, 1),
           fontSize: isGuestFocused ? 24 : 22,
         ),
         prefixIcon: const Icon(
