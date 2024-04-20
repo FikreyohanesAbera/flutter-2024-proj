@@ -83,21 +83,21 @@ class AdminPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Card(
               child: Center(
                 child: ListTile(
-                  title: Text('Get All Tables'),
+                  title: const Text('Get All Tables'),
                   onTap: () {
                     // Implement get all tables functionality
                   },
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Card(
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding:const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -107,15 +107,15 @@ class AdminPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Table Number'),
+                      decoration:const InputDecoration(labelText: 'Table Number'),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
                           // Implement get single table functionality
                         },
-                        child: Text('Get Table'),
+                        child:const Text('Get Table'),
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.blueGrey[900],
@@ -129,7 +129,7 @@ class AdminPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Card(
               child: Padding(
                 padding: EdgeInsets.all(16),
