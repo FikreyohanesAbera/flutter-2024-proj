@@ -1,11 +1,15 @@
+// presentation/widgets/username.dart
 import 'package:flutter/material.dart';
 
 class UsernameTextField extends StatelessWidget {
-  const UsernameTextField({super.key});
+  final TextEditingController controller;
+
+  const UsernameTextField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         labelStyle: const TextStyle(color: Colors.white),

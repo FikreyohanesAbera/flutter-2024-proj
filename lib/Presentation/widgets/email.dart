@@ -1,24 +1,29 @@
+// presentation/widgets/email.dart
 import 'package:flutter/material.dart';
 
-class EmailTextField extends StatelessWidget {
-  const EmailTextField({super.key});
+class emailTextField extends StatelessWidget {
+  final TextEditingController controller;
+
+  const emailTextField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
-        hintText: 'Email',
+        labelStyle: const TextStyle(color: Colors.white),
+        hintText: "email",
         hintStyle: TextStyle(color: Colors.blue.withOpacity(0.6)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
           borderSide: BorderSide.none,
         ),
-        fillColor: const Color.fromARGB(255, 212, 197, 214).withOpacity(0.1),
+        fillColor: const Color.fromARGB(255, 170, 95, 184).withOpacity(0.1),
         filled: true,
         prefixIcon: const Icon(
-          Icons.alternate_email_outlined,
-          color: Color.fromARGB(255, 0, 0, 0),
+          Icons.person,
+          color: Color.fromARGB(133, 218, 213, 213),
         ),
       ),
     );

@@ -39,6 +39,7 @@ class _ReservationFormState extends State<ReservationForm> {
 
   @override
   Widget build(BuildContext context) {
+    // when the widget runs make request to user
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 30, 20, 15),

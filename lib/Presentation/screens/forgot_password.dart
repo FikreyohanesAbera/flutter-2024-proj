@@ -3,7 +3,8 @@ import '../widgets/forgot_and_reset_background.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({super.key});
+  ForgotPasswordPage({super.key});
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class ForgotPasswordPage extends StatelessWidget {
                 const SizedBox(
                   height: 25,
                 ),
-                const EmailTextField(),
+                emailTextField(controller: _emailController),
                 const SizedBox(
                   height: 20,
                 ),

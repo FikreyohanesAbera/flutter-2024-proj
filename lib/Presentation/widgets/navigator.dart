@@ -17,7 +17,7 @@ class Start extends StatelessWidget {
       routes: {
         '/signup': (context) => const SignupPage(),
         '/login': (context) => const LoginPage(),
-        '/forgot_password': (context) => const ForgotPasswordPage(),
+        '/forgot_password': (context) => ForgotPasswordPage(),
         '/reset_password': (context) => const ResetPasswordPage(),
       },
     );
